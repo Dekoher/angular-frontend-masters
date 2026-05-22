@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Car } from './car';
+import { ListingComponent } from "./listing/listing.component";
 
 @Component({
   selector: 'app-root',
@@ -7,36 +8,11 @@ import { Car } from './car';
   template: `
     <h1>Saved Cars {{ savedCarList.length }}</h1>
     <section class="container">
-      <!-- This article element represents and entire listing -->
-      <article class="listing">
-        <div class="image-parent">
-          <img class="product-image" src="https://placehold.co/100x100" />
-        </div>
-        <section class="details">
-          <p class="title"><!-- car make and model--></p>
-          <hr />
-          <p class="detail">
-            <span>Year</span>
-            <span><!-- year --></span>
-          </p>
-          <div class="detail">
-            <span>Transmission</span>
-            <span><!-- transmission --></span>
-          </div>
-          <p class="detail">
-            <span>Mileage</span>
-            <span><!-- miles --></span>
-          </p>
-          <p class="detail">
-            <span>Price</span>
-            <span><!-- price --></span>
-          </p>
-        </section>
-      </article>
-      <!-- end car listing markup -->
+      <app-listing [carInfo]="carList"></ app-listing>
     </section>
   `,
   styles: [],
+  imports: [ListingComponent],
 })
 export class AppComponent {
   savedCarList: Car[] = [];
@@ -48,6 +24,7 @@ export class AppComponent {
       price: 1000,
       year: 2022,
       transmission: 'Automatic',
+      photo: './assets/blue-car.jpeg'
     },
     {
       make: 'Ronda',
@@ -56,6 +33,7 @@ export class AppComponent {
       price: 230,
       year: 1991,
       transmission: 'Automatic',
+      photo: './assets/blue-car.jpeg'
     },
     {
       make: 'Specific Motors',
@@ -64,6 +42,7 @@ export class AppComponent {
       price: 230,
       year: 1991,
       transmission: 'Automatic',
+      photo: './assets/blue-car.jpeg'
     },
     {
       make: 'Fjord',
@@ -72,6 +51,7 @@ export class AppComponent {
       price: 22330,
       year: 2023,
       transmission: 'Automatic',
+      photo: './assets/blue-car.jpeg'
     },
   ];
 }

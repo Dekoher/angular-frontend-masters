@@ -5,4 +5,5 @@ export interface Car {
   price: number;
   year: number;
   transmission: 'Automatic' | 'Manual';
+  photo: string;
 }

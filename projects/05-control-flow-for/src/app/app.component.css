@@ -39,4 +39,6 @@ hr {
 }
 .title {
   font-size: calc(18px * 2);
+  color: #888;
+  text-align: center;
 }

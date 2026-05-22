@@ -3,4 +3,5 @@ export interface AccountInfo {
   membershipStatus: 'silver' | 'gold' | 'platinum';
   validThru: string;
   CVV: string;
+  testingControlFlows: 'elseIf' | 'switch'
 }

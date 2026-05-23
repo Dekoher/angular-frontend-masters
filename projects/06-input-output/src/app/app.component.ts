@@ -8,7 +8,7 @@ import { ListingComponent } from "./listing/listing.component";
   template: `
     <h1>Saved Cars {{ savedCarList.length }}</h1>
     <section class="container">
-      <app-listing [carInfo]="carList"></ app-listing>
+      <app-listing [car]="carList" (carSaved)="addCarToSaved($event)"></ app-listing>
     </section>
   `,
   styles: [],
@@ -54,4 +54,7 @@ export class AppComponent {
       photo: './assets/blue-car.jpeg'
     },
   ];
+  addCarToSaved(car: Car) {
+    this.savedCarList.push(car);
+  }
 }

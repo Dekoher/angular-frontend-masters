@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Car } from '../car';
 
@@ -8,7 +8,7 @@ import { Car } from '../car';
   imports: [CommonModule],
   template: `
     <div style="display: flex; width: 100%; gap: 1rem; flex-wrap: wrap; justify-content: center">
-      @for (car of carInfo; track car) {
+      @for (car of car; track car) {
         <article class="listing">
           <div class="image-parent">
             <img class="product-image" src="https://placehold.co/100x100" />
@@ -33,6 +33,7 @@ import { Car } from '../car';
               <span>{{car.price}}</span>
             </p>
           </section>
+          <button (click)="handleCarSaved(car)">Save</button>
         </article>
       } @empty {
         <p>No elements to show</p>
@@ -41,9 +42,12 @@ import { Car } from '../car';
   `,
   styles: ``,
 })
-export class ListingComponent implements OnInit {
-  @Input () carInfo: Car[] = [];
-  ngOnInit() {
-    console.log('list=>', this.carInfo);
+export class ListingComponent {
+  @Input ({
+    required: true
+  }) car!: Car[];
+  @Output() carSaved = new EventEmitter<Car>();
+  handleCarSaved(event: Car) {
+    this.carSaved.emit(event);
   }
 }

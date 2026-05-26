@@ -19,6 +19,7 @@ import { Post } from '../data';
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
+      color: #000;
     }
     .title {
       font-weight: bold;
